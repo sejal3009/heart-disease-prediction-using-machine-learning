@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang ="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Heart Disease Prediction</title>
+</head>
+
+<style>
+    
+    input[type=text], select {
+        width:80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        box-sizing: border-box;
+        font-weight:bolder;
+    }
+
+    input[type=submit] {
+        width: 80%;
+        background-color: lightpink;
+        color:black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size:100;
+        font-weight: bolder;
+    }
+
+    form{
+        border-radius: 10px;
+        padding-top: 5%;
+        font-weight: bolder;
+    }
+
+    div {
+ 
+        border-radius: 5px;
+        margin-left: 20%;
+         width: 30%;
+  
+    }
+
+    h1{
+        color: red;
+        font-size: 40px;
+        font-weight: bolder;
+    }
+
+    h3{
+        color: white;
+    }
+
+    body {
+            
+            background-image: url("../static/img/images.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            padding: 0px;
+        }
+       
+
+
+
+
+</style>
+
+
+
+<body>
+    <div class = "pred">
+        <h1> Heart Disease Predictor</h1>
+
+        <form action ="{{url_for('predict')}}"method="post" style = "background-color:#E6E6FA">
+            <label for = "Age">Age</label><br>
+            <input type= "text" name= "age" placeholder="eg: 64" required = "required" /> <br>
+            <label for = "sex">Sex</label><br>
+            <select id ="sex" name="gender">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select><br>
+            <label for = "chest pain">Chest Pain Type</label><br>
+            <select id = "CP" name ="Chest_Pain">
+                <option value="0">0:Typical angina</option>
+                <option value="1">1:Atypical angina</option>
+                <option value="2">2:Non angical pain</option>
+                <option value="3">3:Asymptomatic</option>
+            </select><br>
+            <label for = "rbp">Resting BP</label><br>
+            <input type= "text" name= "trestbps" placeholder="eg: 120" required = "required" /> <br>
+            <label for = "Cholestrol">Cholestrol</label><br>
+            <input type= "text" name= "chol" placeholder="eg: 150" required = "required" /> <br>
+            <label for = "fbs">Fasting blood sugar>120 mg/dl</label><br>
+            <select id = "FastBS" name="Fasting blood sugar">
+                <option value="0">0:True</option>
+                <option value="1">1:False</option>
+            </select><br>
+                
+            <label for = "RestECG">Resting Electrocardiographic Results</label><br>
+            <select id="restecg" name = "restECG">
+                <option value="0">0: Nothing to note</option>
+                <option value="1">1: ST-T Wave abnormality</option>
+                <option value="2">2: Possible or definite left ventricular hypertrophy Enlarged heart's main pumping chamber</option>
+                </select><br>
+            <label for = "thalach">Thalach</label><br>
+            <input type= "text" name= "thalach" placeholder="eg: 187" required = "required" /> <br>
+            <label for = "exang">Exercise induced angina</label><br>
+            <select id="Exang" name="exang">
+                <option value="0">0: No</option>
+                <option value="1">1: Yes</option>
+            </select><br>    
+            
+            <label for = "oldpeak">Oldpeak</label><br>
+            <input type= "text" name= "oldpeak" placeholder="eg: 2.3" required = "required" /> <br>
+            <label for = "slope">Slope</label><br>
+            <select id ="Slopee" name= "slopeex">
+            <option value="0">0:Upsloping</option>
+            <option value="1">1:Flatsloping</option>
+            <option value="2">2:Downsloping</option>
+            </select><br>
+            <label for = "Ca">ca</label><br>
+            <select id="CA" name="ca">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select><br>
+            
+            <label for = "thal">Thal</label><br>
+            <select id = "Thal" name="Thal stress">
+                <option value="3">3:normal</option>
+                <option value="6">6:fixed defect</option>
+                <option value="7">7:reversable defect</option>
+                
+
+
+            <input type="submit" value="Predict Heart Disease">
+
+        </form> 
+        <br>
+        <br>
+        <h3>{{prediction_text}}<h3>
+    </div>
+
+
+</body>
+</html>
